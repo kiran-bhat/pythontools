@@ -24,10 +24,10 @@ def traverse(t):
 
 def find_closure(ele):
     arr=[]
+    arr.append(tracer)
     if not tracer in dictonary:
         return arr
     else:
-        arr.append(tracer)
         newarr=traverse(arr)
         while not sorted(newarr) == sorted(arr):
             arr=newarr
