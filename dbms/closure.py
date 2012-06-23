@@ -31,6 +31,7 @@ def find_closure(ele):
             arr=newarr
             newarr=traverse(arr)
         return newarr
+    return arr
 
 for i in inputs:
     if i !='':
