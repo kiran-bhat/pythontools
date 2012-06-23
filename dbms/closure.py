@@ -26,9 +26,6 @@ def find_closure(ele):
     arr=[]
     for e in ele.split(','):
         arr.append(e)
-    if not tracer in dictonary:
-        return arr
-    else:
         newarr=traverse(arr)
         while not sorted(newarr) == sorted(arr):
             arr=newarr
