@@ -21,6 +21,19 @@ def traverse(t):
                 if not d in px:
                     px.append(d)
     return px
+
+def find_closure(ele):
+    arr=[]
+    if not tracer in dictonary:
+        return arr
+    else:
+        arr.append(tracer)
+        newarr=traverse(arr)
+        while not sorted(newarr) == sorted(arr):
+            arr=newarr
+            newarr=traverse(arr)
+        return newarr
+
 for i in inputs:
     if i !='':
         p=[]
@@ -37,13 +50,6 @@ for i in inputs:
 if(len(dictonary)==0):
     raise NameError("Invalid input string")
 tracer=raw_input("Enter which dependencies closure you require")
-arr=[]
-if not tracer in dictonary:
-    print arr
-else:
-    arr.append(tracer)
-    newarr=traverse(arr)
-    while not sorted(newarr) == sorted(arr):
-        arr=newarr
-        newarr=traverse(arr)
-    print newarr
+
+
+print find_closure(tracer)
