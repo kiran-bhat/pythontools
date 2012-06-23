@@ -54,7 +54,6 @@ def getAllElementsInFunctionalDependencies(fd):
             if x not in elements:
                 elements.append(x)
     return elements
-    
 def checkKeyValidity(fd,key):
     validateelements(key,fd)
     if len(find_closure(key,fd))!=len(getAllElementsInFunctionalDependencies(fd)):
@@ -67,4 +66,15 @@ def isTwoNF(fd,key):
         for keyElement in key.split(','):
             if len(find_closure(keyElement,fd))>1:
                 return False
+        return True
+def isThreeNF(fd,key,require2NFCheck):
+        if require2NFCheck:
+                if not isTwoNF(fd,key):
+                        return False
+        else:
+                checkKeyValidity(fd,key)
+        immediateDependencies=fd[key]
+        for dependency in immediateDependencies:
+                if len(find_closure(dependency,fd))>1:
+                        return False
         return True

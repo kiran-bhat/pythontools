@@ -23,6 +23,9 @@ if(len(dictonary)==0):
     raise NameError("Invalid input string")
 tracer=raw_input("Enter which candidate key (use comma separation if you need a composite key)")
 if dbfunctions.isTwoNF(dictonary,tracer):
-    print "2NF!!!"
+    if dbfunctions.isThreeNF(dictonary,tracer,False):
+        print "3NF!!!"
+    else:
+        print "2NF!!!"
 else:
-    print "Not in 2NF"
+    print "1NF!!!"
