@@ -24,7 +24,8 @@ def traverse(t):
 
 def find_closure(ele):
     arr=[]
-    arr.append(tracer)
+    for e in ele.split(','):
+        arr.append(e)
     if not tracer in dictonary:
         return arr
     else:
@@ -49,7 +50,7 @@ for i in inputs:
             raise NameError("Invalid input string")
 if(len(dictonary)==0):
     raise NameError("Invalid input string")
-tracer=raw_input("Enter which dependencies closure you require")
+tracer=raw_input("Enter which elements closure you require (use comma separation if you need combined closure of multiple elements)")
 
 
 print find_closure(tracer)
