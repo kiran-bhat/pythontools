@@ -24,7 +24,10 @@ if(len(dictonary)==0):
 tracer=raw_input("Enter which candidate key (use comma separation if you need a composite key)")
 if dbfunctions.isTwoNF(dictonary,tracer):
     if dbfunctions.isThreeNF(dictonary,tracer,False):
-        print "3NF!!!"
+        if dbfunctions.isBCNF(dictonary,tracer,False):
+            print "BCNF"
+        else:
+            print "3NF!!!"
     else:
         print "2NF!!!"
 else:
